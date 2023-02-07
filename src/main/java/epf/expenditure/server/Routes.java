@@ -7,21 +7,25 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import java.io.InputStreamReader;
 import java.util.*;
-
 import static io.javalin.apibuilder.ApiBuilder.post;
 import static io.javalin.apibuilder.ApiBuilder.get;
 
 public class Routes {
 
+    /**
+     * maps the endpoints of the budgetServer to the appropriate HTTP handler.
+     * @param budgetServer
+     */
     public static void configure(BudgetServer budgetServer) {
         budgetServer.routes(() -> {
             post("/submit.action",  Routes.submit);
         });
     }
 
+    /**
+     * Handles the form submit and redirects to the graph
+     */
     public static final Handler submit = context -> {
         String name = context.formParamAsClass("name", String.class)
                 .check(Objects::nonNull, "Name is required")
