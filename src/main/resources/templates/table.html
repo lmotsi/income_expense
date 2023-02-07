@@ -6,7 +6,7 @@
 <body>
 <div layout:fragment="contents">
     <section class="expenseList">
-        <h2>These are your income and expenses for the last 12 months: </h2>
+        <h2 th:text="'Hello ' + ${name} + ' ' + ${surname} + ', these are your income and expenses for the last 12 months: '"> </h2>
         <div>
             <table >
                 <tr>

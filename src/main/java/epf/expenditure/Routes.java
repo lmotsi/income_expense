@@ -3,6 +3,7 @@ package epf.expenditure;
 import io.javalin.http.Handler;
 import org.thymeleaf.context.IContext;
 
+import java.util.Map;
 import java.util.Objects;
 
 import static io.javalin.apibuilder.ApiBuilder.post;
@@ -13,19 +14,23 @@ public class Routes {
     public static void configure(BudgetServer budgetServer) {
         budgetServer.routes(() -> {
             post("/submit.action",  Routes.submit);
-            get("/table",Routes.viewTable);
         });
     }
 
-    public static final Handler viewTable = context -> {
-        System.out.println("I ");
-        context.render("table.html");
-    };
     public static final Handler submit = context -> {
-//        String email = context.formParamAsClass("email", String.class)
-//                .check(Objects::nonNull, "Email is required")
-//                .get();
-        context.redirect("/table");
+        String name = context.formParamAsClass("name", String.class)
+                .check(Objects::nonNull, "Name is required")
+                .get();
+        String surname = context.formParamAsClass("surname", String.class)
+                .check(Objects::nonNull, "Surname is required")
+                .get();
+        String dateOfBirth = context.formParamAsClass("dateofbirth", String.class)
+                .check(Objects::nonNull, "Date of birth is required")
+                .get();
+        Map<String, Object> formDetails = Map.of("name",name,
+                                                 "surname", surname,
+                                                 "dateofbirth",dateOfBirth);
+        context.render("table.html", formDetails);
     };
 
 }
