@@ -16,9 +16,10 @@ public class BudgetServer {
         JavalinThymeleaf.configure(templateEngine());
         this.appServer = Javalin.create(config -> {
             config.addStaticFiles("/html", Location.CLASSPATH);
-            config.accessManager(accessManager());
+//            config.accessManager(accessManager());
 //            config.sessionHandler(sessionHandler());
         });
+//        this.appServer.post("/submit.action", Routes.submit);
         Routes.configure(this);
     }
     public static void main(String[] args) {
@@ -33,9 +34,9 @@ public class BudgetServer {
     public void routes(EndpointGroup group) {
         appServer.routes(group);
     }
-    private AccessManager accessManager() {
-        return (handler, context, set) -> context.redirect("/");
-    }
+//    private AccessManager accessManager() {
+//        return (handler, context, set) -> context.redirect("/");
+//    }
 
     private TemplateEngine templateEngine() {
         TemplateEngine templateEngine = new TemplateEngine();
