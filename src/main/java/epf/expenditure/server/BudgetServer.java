@@ -1,9 +1,8 @@
-package epf.expenditure;
+package epf.expenditure.server;
 
 import io.javalin.Javalin;
 import io.javalin.apibuilder.EndpointGroup;
 import io.javalin.http.staticfiles.Location;
-import io.javalin.core.security.AccessManager;
 import io.javalin.plugin.rendering.template.JavalinThymeleaf;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;

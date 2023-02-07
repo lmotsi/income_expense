@@ -2,8 +2,12 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head></head>
+<head>
+    <title>EPF Income and expenses</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
 <body>
+<h1>EPF Income and Expenses</h1>
 <div layout:fragment="contents">
     <section class="expenseList">
         <h2 th:text="'Hello ' + ${name} + ' ' + ${surname} + ', these are your income and expenses for the last 12 months: '"> </h2>
@@ -14,8 +18,10 @@
                     <th>Income</th>
                     <th>Expense</th>
                 </tr>
-<!--                <tr th:each="product : ${expenses}">-->
-<!--                    <td th:id="'date_' +${product.getId()}"th:text="${product.getDate()}"></td>-->
+                <tr th:each="record : ${records}">
+                    <td th:text="${record.getMonth()}"></td>
+                    <td th:text="${record.getIncome()}"></td>
+                    <td th:text="${record.getExpense}"></td>
 <!--                    <td >-->
 <!--                        <a th:id="'payment_request_' +${product.getId()}"th:href="@{/paymentrequest(expenseId=${product.getId()})}" th:text="${product.getDescription()}"></a>-->
 <!--                    </td>-->
@@ -23,7 +29,7 @@
 <!--                    <td th:id="'request_' +${product.getId()}"th:text="${product.totalAmountOfPaymentsRequested()}"></td>-->
 <!--                    <td th:id="'received_' +${product.getId()}"th:text="${product.totalAmountForPaymentsReceived()}"></td>-->
 <!--                    <td th:id="'nett_' +${product.getId()}"th:text="${product.amountLessPaymentsReceived()}"></td>-->
-<!--                </tr>-->
+                </tr>
             </table>
         </div>
     </section>
