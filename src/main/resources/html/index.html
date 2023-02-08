@@ -9,14 +9,15 @@
 
 <h1>EPF Income and Expenses</h1>
 <div id="maindiv">
-    <form id="form"  method="post" enctype=multipart/form-data action="/submit.action">
-        <label for="name">First name:</label>
+    <h2>Please fill in the form to view the customer's income and expense graph</h2>
+    <form id="form"  method="post" enctype=multipart/form-data action="/graph">
+        <label for="name">Customer First Name:</label>
         <input type="text" id="name" name="name">
-        <label for="surname">Surname:</label>
+        <label for="surname">Customer Surname:</label>
         <input type="text" id="surname" name="surname">
         <label for="dateofbirth">Date of birth:</label>
         <input type="date" id="dateofbirth" name="dateofbirth">
-        <label for="myfile">Select income and expense file:</label>
+        <label for="myfile">Customer Income and Expense File:</label>
         <input type="file" id="myfile" name="myfile" />
         <input id="submit" name=submit type="submit" value="Enter"/>
     </form>

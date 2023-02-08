@@ -5,9 +5,6 @@ This is a website that enables the user to enter a customer's name, surname, dat
 #                                  Usage Example
 <!-- STEP 1 -->
     If you have maven installed on your PC then you can skip step 1. If you don't have maven then follow these instructions
-
-    Windows:
-#       TODO!!!!
     Linux:
         run -> sudo apt-get install maven -y
         run -> mvn --version
@@ -16,8 +13,6 @@ This is a website that enables the user to enter a customer's name, surname, dat
 
 
 <!-- STEP 2 -->
-    Windows:
-#       TODO!!!!
     Linux:
         Ensure you are in the directory that contains this README.md ("/income_expense)
         1.  run         -> $ mvn clean install

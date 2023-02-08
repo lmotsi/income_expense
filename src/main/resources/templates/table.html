@@ -9,28 +9,56 @@
 <body>
 <h1>EPF Income and Expenses</h1>
 <div layout:fragment="contents">
-    <section class="expenseList">
-        <h2 th:text="'Hello ' + ${name} + ' ' + ${surname} + ', these are your income and expenses for the last 12 months: '"> </h2>
+    <section class="expenses">
+        <h2 th:text="'This is the income and expense statement for the customer: ' + ${name} + ' ' + ${surname} + '.'"> </h2>
         <div>
-            <table >
-                <tr>
-                    <th>Month</th>
-                    <th>Income</th>
-                    <th>Expense</th>
-                </tr>
-                <tr th:each="record : ${records}">
-                    <td th:text="${record.getMonth()}"></td>
-                    <td th:text="${record.getIncome()}"></td>
-                    <td th:text="${record.getExpense}"></td>
-<!--                    <td >-->
-<!--                        <a th:id="'payment_request_' +${product.getId()}"th:href="@{/paymentrequest(expenseId=${product.getId()})}" th:text="${product.getDescription()}"></a>-->
-<!--                    </td>-->
-<!--                    <td th:id="'amount_' +${product.getId()}"th:text="${product.getAmount()}"></td>-->
-<!--                    <td th:id="'request_' +${product.getId()}"th:text="${product.totalAmountOfPaymentsRequested()}"></td>-->
-<!--                    <td th:id="'received_' +${product.getId()}"th:text="${product.totalAmountForPaymentsReceived()}"></td>-->
-<!--                    <td th:id="'nett_' +${product.getId()}"th:text="${product.amountLessPaymentsReceived()}"></td>-->
-                </tr>
-            </table>
+            <div>
+                <div class="block green">Income</div>
+                <div class="block red">Expense</div>
+            </div>
+            <div id="graphContainer">
+                <div class="bar income" th:style="'height:'+${records.get(0).getIncome()}/100 + 'px ; width:30px; left:30px;'" th:text="'R'+${records.get(0).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(0).getExpense()}/100 + 'px ; width:30px; left:70px;'" th:text="'R'+${records.get(0).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(1).getIncome()}/100 + 'px; width:30px; left:110px;'" th:text="'R'+${records.get(1).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(1).getExpense()}/100 + 'px; width:30px; left:150px;'" th:text="'R'+${records.get(1).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(2).getIncome()}/100 + 'px; width:30px; left:190px;'" th:text="'R'+${records.get(2).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(2).getExpense()}/100 + 'px; width:30px; left:230px;'" th:text="'R'+${records.get(2).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(3).getIncome()}/100 + 'px; width:30px; left:270px;'" th:text="'R'+${records.get(3).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(3).getExpense()}/100 + 'px; width:30px; left:310px;'" th:text="'R'+${records.get(3).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(4).getIncome()}/100 + 'px; width:30px; left:350px;'" th:text="'R'+${records.get(4).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(4).getExpense()}/100 + 'px; width:30px; left:390px;'" th:text="'R'+${records.get(4).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(5).getIncome()}/100 + 'px; width:30px; left:430px;'" th:text="'R'+${records.get(5).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(5).getExpense()}/100 + 'px; width:30px; left:470px;'" th:text="'R'+${records.get(5).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(6).getIncome()}/100 + 'px; width:30px; left:510px;'" th:text="'R'+${records.get(6).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(6).getExpense()}/100 + 'px; width:30px; left:550px;'" th:text="'R'+${records.get(6).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(7).getIncome()}/100 + 'px; width:30px; left:590px;'" th:text="'R'+${records.get(7).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(7).getExpense()}/100 + 'px; width:30px; left:630px;'" th:text="'R'+${records.get(7).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(8).getIncome()}/100 + 'px; width:30px; left:670px;'" th:text="'R'+${records.get(8).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(8).getExpense()}/100 + 'px; width:30px; left:710px;'" th:text="'R'+${records.get(8).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(9).getIncome()}/100 + 'px; width:30px; left:750px;'" th:text="'R'+${records.get(9).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(9).getExpense()}/100 + 'px; width:30px; left:790px;'" th:text="'R'+${records.get(9).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(10).getIncome()}/100 + 'px; width:30px; left:830px;'" th:text="'R'+${records.get(10).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(10).getExpense()}/100 + 'px; width:30px; left:870px;'" th:text="'R'+${records.get(10).getExpense()}+'0'"></div>
+                <div class="bar income" th:style="'height:'+${records.get(11).getIncome()}/100 + 'px; width:30px; left:910px;'" th:text="'R'+${records.get(11).getIncome()}+'0'"></div>
+                <div class="bar expense" th:style="'height:'+${records.get(11).getExpense()}/100 + 'px; width:30px; left:950px;'" th:text="'R'+${records.get(11).getExpense()}+'0'"></div>
+            </div>
+            <div id="monthsContainer">
+                <div class="month" style="left:50px;" th:text="${records.get(0).getMonth()}"></div>
+                <div class="month" style="left:100px;" th:text="${records.get(1).getMonth()}"></div>
+                <div class="month" style="left:140px;" th:text="${records.get(2).getMonth()}"></div>
+                <div class="month" style="left:180px;" th:text="${records.get(3).getMonth()}"></div>
+                <div class="month" style="left:220px;" th:text="${records.get(4).getMonth()}"></div>
+                <div class="month" style="left:260px;" th:text="${records.get(5).getMonth()}"></div>
+                <div class="month" style="left:300px;" th:text="${records.get(6).getMonth()}"></div>
+                <div class="month" style="left:350px;" th:text="${records.get(7).getMonth()}"></div>
+                <div class="month" style="left:390px;" th:text="${records.get(8).getMonth()}"></div>
+                <div class="month" style="left:430px;" th:text="${records.get(9).getMonth()}"></div>
+                <div class="month" style="left:480px;" th:text="${records.get(10).getMonth()}"></div>
+                <div class="month" style="left:520px;" th:text="${records.get(11).getMonth()}"></div>
+            </div>
+            <form id="form" method="get" action="/">
+                <input id="submit" name=submit type="submit" value="Thank You"/>
+            </form>
         </div>
     </section>
 </div>
