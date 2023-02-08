@@ -21,4 +21,9 @@ This is a website that enables the user to enter a customer's name, surname, dat
         4.  Fill in the form that appears on the screen, don't forget to enter an excel sheet with an ".xlsx" extension (the program can only process excel sheets with the format of "/sheet/expense.xlsx)
         5. Click Enter to submit and you will see your temporal graph.
 
+<!-- DEMO  -->
+    If running the app fails. Please look at the demo name demo.mp4 in the repo.
+
+#                             THANK YOU
+
     
